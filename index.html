@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gửi anh Tùng ❤️</title>
+
+    <style>
+
+        body{
+
+            margin:0;
+
+            background:black;
+
+            color:#00ff99;
+
+            font-family: 'Courier New', monospace;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            height:100vh;
+
+            overflow:hidden;
+
+        }
+
+        #text{
+
+            width:90%;
+
+            max-width:600px;
+
+            font-size:28px;
+
+            line-height:1.6;
+
+            white-space:pre-line;
+
+        }
+
+        .cursor{
+
+            border-right:3px solid #00ff99;
+
+            animation: blink .8s infinite;
+
+        }
+
+        @keyframes blink{
+
+            50%{border-color:transparent;}
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="text" class="cursor"></div>
+
+    <script>
+
+        const lines = [
+
+            "Đang kết nối...",
+
+            "",
+
+            "Đang xác minh người nhận...",
+
+            "",
+
+            "✔ Thành công",
+
+            "",
+
+            "Có một tin nhắn...",
+
+            "",
+
+            "Chỉ dành riêng cho một người...",
+
+            "",
+
+            "...người đó là anh.",
+
+            "",
+
+            "Tùng ❤️"
+
+        ];
+
+        const el = document.getElementById('text');
+
+        let text = '';
+
+        let line = 0;
+
+        let char = 0;
+
+        function type(){
+
+            if(line < lines.length){
+
+                if(char < lines[line].length){
+
+                    text += lines[line][char];
+
+                    el.textContent = text;
+
+                    char++;
+
+                    setTimeout(type, 80);
+
+                }else{
+
+                    text += '\n';
+
+                    el.textContent = text;
+
+                    line++;
+
+                    char = 0;
+
+                    setTimeout(type, 800);
+                   }
+
+            }
+
+        }
+
+        type();
+
+    </script>
+
+</body>
+
+</html>    
